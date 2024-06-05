@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+<script>
+    navigator.geolocation.getCurrentPosition(position => {
+        const { latitude, longitude } = position.coords;
+        const map = document.getElementById('map');
+        // show a map centered at latitude / longitude.
+        map.innerHTML = `<iframe
+                            width="400" height="400" loading="lazy"
+                            class="restrict-iframe" 
+                            src="https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyBhfzPOT893DqylGr24rcYRrbd15gkfkjU">
+                         </iframe>`;
+    });
+</script>
+</html>
